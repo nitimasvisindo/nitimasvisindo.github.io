@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitimas Visindo - Konsultan Pengembangan Usaha Kecil</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray background for elegance */
+        }
+        /* Custom colors based on logo theme */
+        .color-primary { color: #3730a3; /* Indigo-800 equivalent */ }
+        .bg-primary { background-color: #3730a3; }
+        .bg-accent { background-color: #14b8a6; /* Teal-500 equivalent */ }
+        .hover-bg-accent:hover { background-color: #0d9488; }
+        
+        .shadow-custom {
+            box-shadow: 0 10px 15px -3px rgba(55, 48, 163, 0.1), 0 4px 6px -2px rgba(55, 48, 163, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo (Menggunakan teks, mencerminkan warna logo) -->
+            <div class="text-2xl font-extrabold flex items-center">
+                <span class="color-primary">Nitimas</span>
+                <span class="text-teal-500 ml-1">Visindo</span>
+            </div>
+            
+            <!-- Link Navigasi -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#beranda" class="text-gray-600 hover:text-teal-500 transition duration-300 font-medium">Beranda</a>
+                <a href="#layanan" class="text-gray-600 hover:text-teal-500 transition duration-300 font-medium">Layanan</a>
+                <a href="#kontak" class="text-gray-600 hover:text-teal-500 transition duration-300 font-medium">Kontak</a>
+            </nav>
+
+            <!-- CTA Mobile/Desktop -->
+            <a href="#konsultasi" class="hidden md:block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 shadow-lg">
+                Konsultasi Gratis
+            </a>
+            
+            <!-- Mobile Menu Placeholder -->
+            <div class="md:hidden">
+                <button class="text-gray-600 hover:text-teal-500 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section (Mencerminkan Optimisme dan Keberanian) -->
+    <section id="beranda" class="bg-primary pt-20 pb-24 sm:pt-32 sm:pb-40 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                    Mulai Bisnis Kecil Anda <span class="text-teal-400">Tanpa Biaya</span>
+                </h1>
+                <p class="text-xl sm:text-2xl font-light mb-10 opacity-90">
+                    Kami hadir untuk memberikan konsultasi pengembangan usaha GRATIS. Kami bantu bisnis Anda siap *go digital*.
+                </p>
+                <!-- Tombol CTA Utama -->
+                <a href="#konsultasi" class="inline-block bg-accent hover-bg-accent text-white text-xl font-bold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105 shadow-xl shadow-teal-500/50">
+                    Dapatkan Konsultasi Gratis Sekarang!
+                </a>
+                <p class="mt-4 text-sm opacity-75">Tidak ada biaya tersembunyi. Khusus untuk UMKM Indonesia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Value Proposition (Sederhana dan Fokus) -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center color-primary mb-12">
+                Kami Paham Tantangan Bisnis Kecil
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kartu 1: Biaya Awal -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-custom text-center">
+                    <svg class="w-12 h-12 mx-auto text-teal-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0zM12 11.12c1.7 0 3.12-.9 3.12-2M12 12.88c-1.7 0-3.12-.9-3.12-2"></path></svg>
+                    <h3 class="text-xl font-bold color-primary mb-2">Bebas Biaya Awal</h3>
+                    <p class="text-gray-600">Fokus pada pertumbuhan, bukan pengeluaran. Konsultasi pertama Anda sepenuhnya gratis.</p>
+                </div>
+                <!-- Kartu 2: Digitalisasi -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-custom text-center">
+                    <svg class="w-12 h-12 mx-auto text-teal-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1.429-9.932a.964.964 0 01-1.077-.92L5.75 5H4m8 18L12 8m-4 5h7m3-4a.97.97 0 011.076.92L18.25 19H20a1 1 0 001-1v-2a1 1 0 00-1-1h-2l-.5-3m-6 3l1.5-3m-1.5 3h1.5"></path></svg>
+                    <h3 class="text-xl font-bold color-primary mb-2">Tampil Profesional</h3>
+                    <p class="text-gray-600">Kami ciptakan website dan profil Google yang modern agar bisnis Anda terlihat kredibel di mata pelanggan.</p>
+                </div>
+                <!-- Kartu 3: Pendampingan -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-custom text-center">
+                    <svg class="w-12 h-12 mx-auto text-teal-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h3 class="text-xl font-bold color-primary mb-2">Solusi Tepat Sasaran</h3>
+                    <p class="text-gray-600">Solusi yang kami berikan fokus pada kebutuhan spesifik usaha kecil, bukan solusi 'satu ukuran untuk semua'.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services Section (Layanan Utama) -->
+    <section id="layanan" class="py-16 sm:py-24 bg-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="text-teal-600 font-semibold uppercase block text-center mb-2">Layanan Inti Kami</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center color-primary mb-12">
+                Kami Mempersiapkan Fondasi Digital Anda
+            </h2>
+            
+            <div class="space-y-10">
+                <!-- Layanan 1: Konsultasi Gratis -->
+                <div class="flex flex-col md:flex-row items-start md:items-center bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-teal-100 text-teal-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.692A9 9 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold color-primary mb-2">Konsultasi Bisnis 1-on-1 (GRATIS)</h3>
+                        <p class="text-gray-600">Diskusi mendalam mengenai model bisnis, tantangan, dan strategi pertumbuhan. Kami berikan panduan yang jelas dan personal tanpa biaya di awal.</p>
+                    </div>
+                </div>
+
+                <!-- Layanan 2: Pembuatan Website Sederhana -->
+                <div class="flex flex-col md:flex-row items-start md:items-center bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1.429-9.932a.964.964 0 01-1.077-.92L5.75 5H4m8 18L12 8m-4 5h7m3-4a.97.97 0 011.076.92L18.25 19H20a1 1 0 001-1v-2a1 1 0 00-1-1h-2l-.5-3m-6 3l1.5-3m-1.5 3h1.5"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold color-primary mb-2">Pembuatan Website Representatif</h3>
+                        <p class="text-gray-600">Kami desain dan bangun website sederhana yang responsif, cepat, dan fokus pada informasi penting produk/jasa Anda.</p>
+                    </div>
+                </div>
+
+                <!-- Layanan 3: Optimasi Google Business Profile -->
+                <div class="flex flex-col md:flex-row items-start md:items-center bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-teal-100 text-teal-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold color-primary mb-2">Setup dan Optimasi Profil Google Bisnis</h3>
+                        <p class="text-gray-600">Pastikan bisnis Anda mudah ditemukan di Google Maps dan Pencarian. Kami bantu proses verifikasi dan optimasi profil Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4. CTA / Form Sederhana -->
+    <section id="konsultasi" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-gray-50 p-8 rounded-xl shadow-2xl shadow-indigo-200/50">
+            <h2 class="text-3xl font-extrabold text-center color-primary mb-4">
+                Siap Melangkah Lebih Maju?
+            </h2>
+            <p class="text-center text-xl text-gray-600 mb-8">
+                Isi formulir singkat di bawah ini, dan tim kami akan segera menghubungi Anda untuk mengatur jadwal konsultasi gratis 
+                Anda.
+            </p>
+
+            <!-- Form Placeholder -->
+            <form class="space-y-6">
+                <div>
+                    <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                </div>
+                <div>
+                    <label for="usaha" class="block text-sm font-medium text-gray-700">Nama Usaha Anda</label>
+                    <input type="text" id="usaha" name="usaha" placeholder="Contoh: Warung Kopi Senja" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                </div>
+                <div>
+                    <label for="telepon" class="block text-sm font-medium text-gray-700">Nomor Kontak (WhatsApp)</label>
+                    <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 0812-3456-7890" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                </div>
+                <button type="submit" class="w-full bg-accent hover-bg-accent text-white text-lg font-semibold py-3 rounded-lg transition duration-300 transform hover:scale-[1.01] shadow-md shadow-teal-500/40">
+                    Kirim Permintaan Konsultasi Gratis
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 5. Footer (Informasi Kontak Default) -->
+    <footer id="kontak" class="bg-primary pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+            <div class="grid md:grid-cols-3 gap-8 pb-8 border-b border-indigo-700">
+                
+                <!-- Kolom 1: Tentang Kami -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-teal-300">Nitimas Visindo</h4>
+                    <p class="text-indigo-200 text-sm">
+                        Kami berkomitmen untuk membantu usaha kecil bertumbuh dan memiliki pondasi digital yang kuat, mulai dari konsultasi strategis hingga implementasi website dan profil bisnis Google.
+                    </p>
+                </div>
+                
+                <!-- Kolom 2: Kontak Default -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-teal-300">Hubungi Kami</h4>
+                    <ul class="space-y-2 text-indigo-200 text-sm">
+                        <li>
+                            <strong class="font-semibold">Telepon/WhatsApp:</strong> <br>
+                            +62 800-1234-5678 (Default)
+                        </li>
+                        <li>
+                            <strong class="font-semibold">Email:</strong> <br>
+                            halo@nitimasvisindo.com (Default)
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Kolom 3: Alamat Default -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-teal-300">Alamat Kami</h4>
+                    <p class="text-indigo-200 text-sm">
+                        Jl. Digital No. 10, <br>
+                        Kecamatan Inovasi, Kota Bisnis (Default)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-8 text-center text-sm text-indigo-400">
+                &copy; 2025 Nitimas Visindo. Semua Hak Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
