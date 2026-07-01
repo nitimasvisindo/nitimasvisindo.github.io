@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Video</title>
+    <style>
+    body { font-family: sans-serif; text-align: center; padding: 15px; background: #f4f4f4; margin: 0; }
+    
+    /* Perbesar judul agar sama dengan galeri foto */
+    h1 { font-size: 2em; margin-bottom: 5px; }
+    
+    /* Perbesar instruksi agar terbaca jelas */
+    .instruction { font-size: 1.1em; color: #444; margin-bottom: 20px; font-weight: bold; }
+    
+    .grid { 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+    }
+    
+    .video-thumb { 
+        width: 100%; 
+        aspect-ratio: 16/9; 
+        background: #000; 
+        cursor: pointer; 
+        border-radius: 8px; 
+        object-fit: cover; 
+        border: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    /* ... (bagian modal tetap sama) ... */
+</style>
+
+</head>
+<body>
+        <body>
+    <h1>Galeri Video</h1>
+    <p class="instruction">Klik video untuk memutar</p>
+
+    <div class="grid" id="video-gallery"></div>
+    ...
+
+
+    <script>
+        const totalVideo = 19; 
+        const gallery = document.getElementById('video-gallery');
+        const modal = document.getElementById('modal');
+        const modalVideo = document.getElementById('modal-video');
+
+        for (let i = 1; i <= totalVideo; i++) {
+            let fileName = "nv_join_project_vid (" + i + ").mp4";
+            let thumb = document.createElement('video');
+            thumb.className = 'video-thumb';
+            thumb.src = encodeURIComponent(fileName);
+            thumb.onclick = () => { modal.style.display = 'flex'; modalVideo.src = thumb.src; modalVideo.play(); };
+            gallery.appendChild(thumb);
+        }
+
+        document.getElementById('close-btn').onclick = () => { modal.style.display = 'none'; modalVideo.pause(); };
+    </script>
+</body>
+</html>
