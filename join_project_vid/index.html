@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Video</title>
+    <style>
+    body { font-family: sans-serif; text-align: center; padding: 20px; }
+    .video-container { 
+        margin-bottom: 30px; 
+        width: 100%; 
+        max-width: 600px; /* Batasi lebar maksimal agar tidak terlalu lebar */
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+    video { 
+        width: 100%;       /* Lebar mengikuti container */
+        height: 340px;     /* Tentukan tinggi tetap agar seragam */
+        object-fit: cover; /* Video akan dipotong/disesuaikan agar pas di dalam kotak */
+        border: 1px solid #ccc; 
+        border-radius: 8px; 
+        background: #000;  /* Latar hitam jika video tidak memenuhi kotak */
+    }
+</style> 
+</head>
+<body>
+    <h1>Koleksi Video</h1>
+    <div id="video-gallery"></div>
+
+    <script>
+        // Cukup ubah angka ini jika jumlah video bertambah
+        const totalVideo = 19; 
+        const gallery = document.getElementById('video-gallery');
+
+        for (let i = 1; i <= totalVideo; i++) {
+            // Nama file dasar
+            let fileName = "nv_join_project_vid (" + i + ").mp4";
+            
+            let container = document.createElement('div');
+            container.className = 'video-container';
+            
+            let video = document.createElement('video');
+            video.src = encodeURIComponent(fileName); // Menangani spasi & tanda kurung otomatis
+            video.controls = true;
+            video.preload = "metadata"; // Agar halaman lebih ringan saat dibuka
+            
+            container.appendChild(video);
+            gallery.appendChild(container);
+        }
+    </script>
+</body>
+</html>
