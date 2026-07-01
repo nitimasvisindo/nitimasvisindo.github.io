@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Video</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 10px; background: #f4f4f4; margin: 0; }
+        
+        /* Judul disamakan persis dengan Galeri Foto */
+        h1 { font-size: 2em; margin-bottom: 5px; margin-top: 20px; }
+        
+        /* Instruksi disamakan persis dengan Galeri Foto */
+        .instruction { font-size: 1.1em; color: #666; margin-bottom: 20px; font-weight: normal; }
+        
+        /* Grid disamakan persis dengan Galeri Foto (2 kolom) */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 10px; 
+            padding: 10px;
+        }
+        
+        /* Video thumbnail dibuat kotak persegi (1:1) agar sama dengan foto */
+        .video-thumb { 
+            width: 100%; 
+            aspect-ratio: 1 / 1; 
+            background: #000; 
+            cursor: pointer; 
+            border-radius: 8px; 
+            object-fit: cover; 
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Gaya Popup (Modal) */
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
+        #modal video { width: 95%; max-width: 800px; border-radius: 10px; }
+        #close-btn { position: absolute; top: 20px; right: 20px; color: white; font-size: 45px; cursor: pointer; line-height: 1; }
+    </style>
+</head>
+<body>
+
+    <h1>Galeri Video</h1>
+    <p class="instruction">Klik video untuk memutar</p>
+
+    <div class="grid" id="video-gallery"></div>
+
+    <div id="modal"><span id="close-btn">&times;</span><video id="modal-video" controls></video></div>
+
+    <script>
+        const totalVideo = 19; 
+        const gallery = document.getElementById('video-gallery');
+        const modal = document.getElementById('modal');
+        const modalVideo = document.getElementById('modal-video');
+
+        for (let i = 1; i <= totalVideo; i++) {
+            let fileName = "nv_join_project_vid (" + i + ").mp4";
+            let thumb = document.createElement('video');
+            thumb.className = 'video-thumb';
+            thumb.src = encodeURIComponent(fileName);
+            thumb.onclick = () => { modal.style.display = 'flex'; modalVideo.src = thumb.src; modalVideo.play(); };
+            gallery.appendChild(thumb);
+        }
+
+        document.getElementById('close-btn').onclick = () => { modal.style.display = 'none'; modalVideo.pause(); };
+        modal.onclick = (e) => { if(e.target == modal) { modal.style.display = 'none'; modalVideo.pause(); } };
+    </script>
+</body>
+</html>
