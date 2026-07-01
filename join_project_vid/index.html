@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Galeri Video</h1>
+    <div id="video-gallery"></div>
+
+    <script>
+        const gallery = document.getElementById('video-gallery');
+        for (let i = 1; i <= 19; i++) {
+            const video = document.createElement('video');
+            video.src = "nv_join_project_vid%20(" + i + ").mp4";
+            video.width = "100%";
+            video.controls = true;
+            video.style.marginBottom = "20px";
+            gallery.appendChild(video);
+        }
+    </script>
+</body>
+</html>
