@@ -4,48 +4,39 @@
     <meta charset="UTF-8">
     <title>Galeri Video</title>
     <style>
-    body { font-family: sans-serif; text-align: center; padding: 20px; }
-    .video-container { 
-        margin-bottom: 30px; 
-        width: 100%; 
-        max-width: 600px; /* Batasi lebar maksimal agar tidak terlalu lebar */
-        margin-left: auto; 
-        margin-right: auto; 
-    }
-    video { 
-        width: 100%;       /* Lebar mengikuti container */
-        height: 340px;     /* Tentukan tinggi tetap agar seragam */
-        object-fit: cover; /* Video akan dipotong/disesuaikan agar pas di dalam kotak */
-        border: 1px solid #ccc; 
-        border-radius: 8px; 
-        background: #000;  /* Latar hitam jika video tidak memenuhi kotak */
-    }
-</style> 
+        body { font-family: sans-serif; text-align: center; padding: 10px; background: #f4f4f4; }
+        /* Grid layout agar rapi */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        .video-thumb { width: 100%; aspect-ratio: 16/9; background: #000; cursor: pointer; border-radius: 5px; }
+        
+        /* Gaya Popup (Modal) */
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        #modal video { width: 90%; max-width: 800px; border-radius: 10px; }
+        #close-btn { position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <h1>Koleksi Video</h1>
-    <div id="video-gallery"></div>
+    <h1>Galeri Video</h1>
+    <div class="grid" id="video-gallery"></div>
+
+    <div id="modal"><span id="close-btn">&times;</span><video id="modal-video" controls></video></div>
 
     <script>
-        // Cukup ubah angka ini jika jumlah video bertambah
         const totalVideo = 19; 
         const gallery = document.getElementById('video-gallery');
+        const modal = document.getElementById('modal');
+        const modalVideo = document.getElementById('modal-video');
 
         for (let i = 1; i <= totalVideo; i++) {
-            // Nama file dasar
             let fileName = "nv_join_project_vid (" + i + ").mp4";
-            
-            let container = document.createElement('div');
-            container.className = 'video-container';
-            
-            let video = document.createElement('video');
-            video.src = encodeURIComponent(fileName); // Menangani spasi & tanda kurung otomatis
-            video.controls = true;
-            video.preload = "metadata"; // Agar halaman lebih ringan saat dibuka
-            
-            container.appendChild(video);
-            gallery.appendChild(container);
+            let thumb = document.createElement('video');
+            thumb.className = 'video-thumb';
+            thumb.src = encodeURIComponent(fileName);
+            thumb.onclick = () => { modal.style.display = 'flex'; modalVideo.src = thumb.src; modalVideo.play(); };
+            gallery.appendChild(thumb);
         }
+
+        document.getElementById('close-btn').onclick = () => { modal.style.display = 'none'; modalVideo.pause(); };
     </script>
 </body>
 </html>
