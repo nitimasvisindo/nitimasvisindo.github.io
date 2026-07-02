@@ -5,7 +5,6 @@
     <title>Galeri Foto Proyek</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* CSS untuk Modal */
         .modal { display: none; position: fixed; z-index: 50; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
         .modal.active { display: flex; }
         .modal img { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 8px; }
@@ -15,8 +14,8 @@
     
     <div class="mb-8 text-center md:text-left">
         <h1 class="text-5xl font-bold mb-4">Galeri Foto Proyek</h1>
-        <p class="text-[#D4AF37] font-bold text-xl tracking-wide uppercase">
-            💡 Klik pada gambar untuk memperbesar
+        <p class="text-[#D4AF37] font-extrabold text-2xl tracking-wide uppercase italic">
+            💡 KLIK PADA GAMBAR UNTUK MEMPERBESAR
         </p>
     </div>
 
@@ -31,11 +30,11 @@
         const modal = document.getElementById('modal');
         const modalImg = document.getElementById('modal-img');
 
+        // Loop untuk memanggil file dari (1) sampai (148)
         for (let i = 1; i <= 148; i++) {
             const fileName = `nv_join_project_img (${i}).jpg`;
             const img = document.createElement('img');
             img.src = fileName;
-            // Gambar dibuat lebih tinggi (h-64) agar detail lebih terlihat
             img.className = "w-full h-64 object-cover rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity duration-300";
             img.onclick = function() {
                 modalImg.src = this.src;
