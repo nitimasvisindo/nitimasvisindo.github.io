@@ -6,18 +6,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#121212] p-10 text-white">
-    <h1 class="text-4xl font-bold mb-10">Galeri Foto Proyek</h1>
+    
+    <!-- Judul dan Keterangan -->
+    <h1 class="text-4xl font-bold mb-2">Galeri Foto Proyek</h1>
+    <p class="text-gray-400 mb-10 italic">* Klik pada gambar untuk memperbesar</p>
+
     <div id="galeri-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
 
     <script>
         const container = document.getElementById('galeri-container');
         for (let i = 1; i <= 148; i++) {
+            const fileName = `nv_join_project_img (${i}).jpg`;
+            
+            // Membuat link pembungkus agar gambar bisa diklik
+            const link = document.createElement('a');
+            link.href = fileName;
+            link.target = "_blank"; // Membuka di tab baru untuk efek pop-up sederhana
+            
             const img = document.createElement('img');
-            // Menyesuaikan dengan nama file: ada spasi sebelum (i)
-            img.src = `nv_join_project_img (${i}).jpg`;
-            img.className = "w-full h-64 object-cover rounded shadow-lg";
-            img.onerror = function() { this.style.display = 'none'; };
-            container.appendChild(img);
+            img.src = fileName;
+            img.className = "w-full h-64 object-cover rounded shadow-lg cursor-pointer hover:opacity-80 transition";
+            
+            // Menyembunyikan jika file tidak ada
+            img.onerror = function() { link.style.display = 'none'; };
+            
+            link.appendChild(img);
+            container.appendChild(link);
         }
     </script>
 </body>
