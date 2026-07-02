@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri HVAC | Nitimas Visindo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal { display: none; position: fixed; z-index: 50; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        .modal.active { display: flex; }
+        .modal img { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 8px; }
+    </style>
+</head>
+<body class="bg-[#121212] p-6 text-white">
+    
+    <div class="mb-8 text-center md:text-left">
+        <h1 class="text-5xl font-bold mb-4">Dokumentasi HVAC</h1>
+        <p class="text-[#D4AF37] font-extrabold text-2xl tracking-wide uppercase italic">
+            💡 KLIK PADA GAMBAR UNTUK MEMPERBESAR
+        </p>
+    </div>
+
+    <div id="galeri-container" class="grid grid-cols-2 gap-4"></div>
+
+    <div id="modal" class="modal" onclick="this.classList.remove('active')">
+        <img id="modal-img" src="" alt="Zoom">
+    </div>
+
+    <script>
+        const container = document.getElementById('galeri-container');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+
+        // Loop 1 sampai 66
+        for (let i = 1; i <= 66; i++) {
+            const fileName = `nv_hvac_img (${i}).jpg`;
+            const img = document.createElement('img');
+            img.src = fileName;
+            img.className = "w-full h-64 object-cover rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity duration-300";
+            img.onclick = function() {
+                modalImg.src = this.src;
+                modal.classList.add('active');
+            };
+            img.onerror = function() { this.style.display = 'none'; };
+            container.appendChild(img);
+        }
+    </script>
+</body>
+</html>
