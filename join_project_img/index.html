@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Foto | Nitimas Visindo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #121212; color: #E0E0E0; font-family: 'Outfit', sans-serif; }
+    </style>
+</head>
+<body class="p-10">
+    <a href="../" class="text-[#D4AF37] hover:underline mb-10 block">&larr; Kembali ke Beranda</a>
+    <h1 class="text-4xl font-bold mb-10 text-white">Galeri Foto Proyek</h1>
+    
+    <!-- Container untuk menampung gambar -->
+    <div id="galeri-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+    <script>
+        const container = document.getElementById('galeri-container');
+        // Looping dari 1 sampai 148
+        for (let i = 1; i <= 148; i++) {
+            const img = document.createElement('img');
+            img.src = `nv_join_project_img_(${i}).jpg`;
+            img.alt = `Proyek ${i}`;
+            img.className = "w-full h-64 object-cover rounded shadow-lg border border-gray-700";
+            
+            // Menangani error jika file gambar dengan nomor tertentu tidak ada
+            img.onerror = function() { this.style.display = 'none'; };
+            
+            container.appendChild(img);
+        }
+    </script>
+</body>
+</html>
