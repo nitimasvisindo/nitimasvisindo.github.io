@@ -2,18 +2,62 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Galeri Video | Nitimas Visindo</title>
+    <title>Galeri Video Proyek</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #121212; color: #E0E0E0; font-family: 'Outfit', sans-serif; }
+        /* CSS untuk Modal Video */
+        .modal { display: none; position: fixed; z-index: 50; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        .modal.active { display: flex; }
+        .modal video { max-width: 90%; max-height: 80vh; border-radius: 8px; }
     </style>
 </head>
-<body class="p-10">
-    <a href="../" class="text-[#D4AF37] hover:underline mb-10 block">&larr; Kembali ke Beranda</a>
-    <h1 class="text-4xl font-bold mb-10 text-white">Galeri Video Proyek</h1>
-    <!-- Tempatkan link/embed video Anda di sini -->
-    <div class="grid gap-8">
-        <div class="bg-gray-800 h-96 flex items-center justify-center">Embed Video Player</div>
+<body class="bg-[#121212] p-6 text-white">
+    
+    <div class="mb-8 text-center md:text-left">
+        <h1 class="text-5xl font-bold mb-4">Galeri Video Proyek</h1>
+        <p class="text-[#D4AF37] font-extrabold text-2xl tracking-wide uppercase italic">
+            💡 KLIK PADA VIDEO UNTUK MEMPERBESAR
+        </p>
     </div>
+
+    <div id="video-container" class="grid grid-cols-2 gap-4"></div>
+
+    <div id="modal" class="modal" onclick="this.classList.remove('active'); document.getElementById('modal-video').pause();">
+        <video id="modal-video" controls>
+            <source src="" type="video/mp4">
+            Browser Anda tidak mendukung video.
+        </video>
+    </div>
+
+    <script>
+        const container = document.getElementById('video-container');
+        const modal = document.getElementById('modal');
+        const modalVideo = document.getElementById('modal-video');
+
+        // Loop untuk memanggil file dari (1) sampai (19)
+        for (let i = 1; i <= 19; i++) {
+            const fileName = `nv_join_project_vid (${i}).mp4`;
+            
+            const videoWrapper = document.createElement('div');
+            videoWrapper.className = "cursor-pointer relative";
+            
+            const video = document.createElement('video');
+            video.src = fileName;
+            video.className = "w-full h-64 object-cover rounded-lg shadow-lg";
+            
+            // Saat thumbnail diklik, buka di modal
+            video.onclick = function() {
+                modalVideo.src = this.src;
+                modal.classList.add('active');
+                modalVideo.play();
+            };
+            
+            // Sembunyikan jika file tidak ada
+            video.onerror = function() { videoWrapper.style.display = 'none'; };
+            
+            videoWrapper.appendChild(video);
+            container.appendChild(videoWrapper);
+        }
+    </script>
 </body>
 </html>
